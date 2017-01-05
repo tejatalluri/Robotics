@@ -1,0 +1,56 @@
+C51 COMPILER V9.55   OBSTACLE_FOLLOWER                                                     05/11/2016 16:10:21 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE OBSTACLE_FOLLOWER
+OBJECT MODULE PLACED IN .\Objects\obstacle-follower.obj
+COMPILER INVOKED BY: H:\C51\BIN\C51.EXE obstacle-follower.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\obstacle-follower.lst) TABS(2) OBJECT(.\Objects\obstacle-follower.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<Stdio.h>
+   3          
+   4          #define lt 0x06;
+   5          #define rt 0x09;
+   6          #define st 0x0a;
+   7          #define stop 0x00;
+   8          unsigned int a;
+   9          
+  10          void main()
+  11          {
+  12   1        while(1)
+  13   1        {
+  14   2          a = P1 & 0x0c;
+  15   2          if(a==0x00)
+  16   2          {
+  17   3            P2 = stop;
+  18   3          }
+  19   2          if(a==0x04)
+  20   2          {
+  21   3            P2=rt;
+  22   3          }
+  23   2          if(a==0x08)
+  24   2          {
+  25   3            P2=lt;
+  26   3          }
+  27   2          if(a==0x0c)
+  28   2          {
+  29   3            P2=st;
+  30   3          }
+  31   2        }
+  32   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     50    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

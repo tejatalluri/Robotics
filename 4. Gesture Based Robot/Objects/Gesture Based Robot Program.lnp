@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\Gesture-Program.obj" 
+TO ".\Objects\Gesture Based Robot Program" 
+PRINT(".\Listings\Gesture Based Robot Program.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )
