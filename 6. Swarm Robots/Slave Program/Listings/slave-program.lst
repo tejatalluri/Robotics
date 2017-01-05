@@ -1,0 +1,59 @@
+C51 COMPILER V9.55   SLAVE_PROGRAM                                                         05/12/2016 14:33:50 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE SLAVE_PROGRAM
+OBJECT MODULE PLACED IN .\Objects\slave-program.obj
+COMPILER INVOKED BY: H:\C51\BIN\C51.EXE slave-program.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\sla
+                    -ve-program.lst) TABS(2) OBJECT(.\Objects\slave-program.obj)
+
+line level    source
+
+   1          #include<reg52.h>  //header files of microcontroller
+   2          #include<stdio.h>   // header files of C
+   3          #define lt 0x06;       // User define function
+   4          #define rt 0x09;      // User define function
+   5          #define st 0x0a;      // User define function
+   6          #define stop 0x0f;
+   7          #define rev 0x05;     // User define function
+   8          unsigned int a;        // Declaring variable globally  
+   9          void main()              //main Program  starts
+  10          {
+  11   1      while(1)
+  12   1      {
+  13   2        a=P0&0x0f;
+  14   2        if(a==0x06)
+  15   2        {
+  16   3          P2=lt;
+  17   3        }
+  18   2        if(a==0x09)
+  19   2        {
+  20   3          P2=rt;
+  21   3        }
+  22   2      if(a==0x0a)
+  23   2        {
+  24   3          P2=st;
+  25   3        }
+  26   2        if(a==0x05)
+  27   2        {
+  28   3          P2=rev;
+  29   3        }
+  30   2        if(a==0x0f)
+  31   2        {
+  32   3          P2=stop;
+  33   3        }
+  34   2      }
+  35   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     64    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

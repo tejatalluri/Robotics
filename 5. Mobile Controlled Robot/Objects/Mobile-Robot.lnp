@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\Mobile-Robot.obj" 
+TO ".\Objects\Mobile-Robot" 
+PRINT(".\Listings\Mobile-Robot.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

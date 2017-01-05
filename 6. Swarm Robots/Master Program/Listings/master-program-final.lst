@@ -1,0 +1,86 @@
+C51 COMPILER V9.55   MASTER_PROGRAM_FINAL                                                  05/12/2016 17:55:26 PAGE 1   
+
+
+C51 COMPILER V9.55, COMPILATION OF MODULE MASTER_PROGRAM_FINAL
+OBJECT MODULE PLACED IN .\Objects\master-program-final.obj
+COMPILER INVOKED BY: H:\C51\BIN\C51.EXE master-program-final.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\master-program-final.lst) TABS(2) OBJECT(.\Objects\master-program-final.obj)
+
+line level    source
+
+   1          #include<reg52.h>  //header files of microcontroller
+   2          #include<stdio.h>   // header files of C
+   3          #define lt 0x06;       // User define function
+   4          #define rt 0x09;      // User define function
+   5          #define st 0x0a;      // User define function
+   6          #define stop 0x0f;
+   7          #define rev 0x05;     // User define function
+   8          unsigned int a;        // Declaring variable globally  
+   9          void delay(unsigned int t)
+  10          {
+  11   1        int i,j;
+  12   1        for(i=0;i<t;i++)
+  13   1        {
+  14   2          for(j=0;j<1275;j++);
+  15   2        }
+  16   1      } 
+  17          void main() //main Program  starts
+  18          {
+  19   1      while(1)
+  20   1      {
+  21   2      a=P1&0x03;//masking
+  22   2      if(a==0x01)
+  23   2      {
+  24   3        P2=rev;
+  25   3        P0=rev;
+  26   3        delay(50);
+  27   3        P2=stop;
+  28   3        P0=P2;
+  29   3        delay(50);
+  30   3        P2=lt;
+  31   3        P0=P2;
+  32   3        delay(50);
+  33   3      }
+  34   2      if(a==0x02)
+  35   2      {
+  36   3        P2=rev;
+  37   3        P0=P2;
+  38   3                         delay(50);
+  39   3        P2=stop;
+  40   3        P0=P2;
+  41   3        delay(50);
+  42   3        P2=rt;  
+  43   3        P0=P2;
+  44   3        delay(50);
+  45   3      
+  46   3      }
+  47   2      if(a==0x03)
+  48   2      {
+  49   3      P2=rev;
+  50   3      P0=P2;
+  51   3      delay(50);
+  52   3      }
+  53   2      if(a==0x00)
+  54   2                      {
+C51 COMPILER V9.55   MASTER_PROGRAM_FINAL                                                  05/12/2016 17:55:26 PAGE 2   
+
+  55   3                     P2=st;
+  56   3        P0=P2;
+  57   3        delay(50);
+  58   3                       }
+  59   2      }
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    143    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\master-program-final.obj" 
+TO ".\Objects\master-program-final" 
+PRINT(".\Listings\master-program-final.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )
