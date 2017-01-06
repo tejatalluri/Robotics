@@ -14,7 +14,7 @@ const unsigned int textScanTimeout = 15UL; // secs between scans for inbound tex
 TinyGPSPlus gps;                  // Create a GPS instance
 char s[80];                       // Generic buffer
 SoftwareSerial ssGprs(7,8);       // Serial Communication pins to which the Gprs modem is connected (Rx,Tx)
-SoftwareSerial ssGps(4,3);       // Serial COmmunication pins to which the GPS module is connected (Rx,Tx)
+SoftwareSerial ssGps(4,3);        // Serial COmmunication pins to which the GPS module is connected (Rx,Tx)
 
 
 //Forward Declerations
@@ -71,12 +71,12 @@ if (x== sizeof(s)-1){
 if(ssGprs.available()!=0){
 
 c=ssGprs.read();
-if(c == '\r' || c == '\n')        // if full line is read without finding text, clear the buffer
+if(c == '\r' || c == '\n')         // if full line is read without finding text, clear the buffer
 x=0;
 s[x] = c;
 s[x+1] = '\0';                     // GSM response is stored in the array "s"
 
-if( strstr(s, matchStr) != NULL)  // Check if the desired answer is in the response of the GSM 
+if( strstr(s, matchStr) != NULL)   // Check if the desired answer is in the response of the GSM 
 
     answer = 1;
 
@@ -205,11 +205,11 @@ void send Coord(
 	
 	}
 	
-doGpsIo();                  // Decode next gps character
-if (millis() > timeout) {   // Every timeout secs, check for SMS
-    ssGprs.listen();        // start listening to GSM Module
+doGpsIo();                            // Decode next gps character
+if (millis() > timeout) {             // Every timeout secs, check for SMS
+    ssGprs.listen();                  // start listening to GSM Module
 	doSmsMsg(); 
-	ssGps.listen();         // Go back to listening to 	GPS
+	ssGps.listen();               // Go back to listening to GPS
 	timeout = millis() + textScanTimeout * 1000UL;
 	
 	}
