@@ -16,3 +16,11 @@ Contains code for the following robots:-
 6. Swarm Based Robots
 
 7. Maze Solver Robot
+
+8. Animatronic Hand
+
+9. Smart Energy System using GSM
+
+10. Automatic Solar Tracker
+
+11. Persistance of Vision
